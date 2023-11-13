@@ -10,15 +10,10 @@ const birthdateInput = document.querySelector("#birthdate");
 const quantityInput =document.querySelector("#quantity");
 const location1=document.querySelector("#location1");
 const conditionsCheckbox = document.querySelector('#checkbox1');
-const submitButton=document.querySelector(".btn-submit");
-
-
-
-
-
+const form=document.querySelector("form");
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-modalclose.addEventListener("click", close);
+modalclose.addEventListener("click", closeModal);
 
 /* validation form*/ 
 firstInput.addEventListener("invalid",ErrorMessage);
@@ -28,13 +23,16 @@ birthdateInput.addEventListener("invalid",ErrorMessage);
 quantityInput.addEventListener("invalid",ErrorMessage);
 location1.addEventListener("invalid",ErrorMessage);
 conditionsCheckbox.addEventListener("invalid",ErrorMessage);
+form.addEventListener("submit",handleSubmit);
+
+  
  
 // Show error message
 function ErrorMessage(event) {
   const target = event.target;
   const parent=target.parentElement;
   parent.setAttribute("data-error-visible","true");
-   setTimeout(removeErrorMessage,9000);
+   setTimeout(removeErrorMessage,2000);
   
 }
 
@@ -53,7 +51,7 @@ function editNav() {
 
 }
 
-function close() {
+function closeModal() {
   if (modalBackground != null) {
     modalBackground.classList.remove("active");
   }
@@ -65,6 +63,13 @@ function launchModal() {
 
   }
 
+}
+function handleSubmit(){
+  if(form == null) throw new Error ("No form found");
+  if(form.checkValidity){
+    alert("Merci ! Votre réservation a été reçue");
+   closeModal();
+  }
 }
 
 
