@@ -66,9 +66,7 @@ function launchModal() {
   }
 
 }
-function validate(){
- ErrorMessage() ;
-}
+
 
 
 
