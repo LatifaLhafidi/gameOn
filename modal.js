@@ -7,27 +7,45 @@ const firstInput = document.querySelector("#first");
 const lastInput= document.querySelector("#last");
 const emailInput = document.querySelector("#email");
 const birthdateInput = document.querySelector("#birthdate");
+const quantityInput =document.querySelector("#quantity");
+const location1=document.querySelector("#location1");
+const conditionsCheckbox = document.querySelector('#checkbox1');
+const submitButton=document.querySelector(".btn-submit");
+
+
 
 
 
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalclose.addEventListener("click", close);
-firstInput.addEventListener("invalid",validationError);
-lastInput.addEventListener("invalid",validationError);
-emailInput.addEventListener("invalid",validationError);
-birthdateInput.addEventListener("invalid",validationError);
 
-
-function validationError(event) {
+/* validation form*/ 
+firstInput.addEventListener("invalid",ErrorMessage);
+lastInput.addEventListener("invalid",ErrorMessage);
+emailInput.addEventListener("invalid",ErrorMessage);
+birthdateInput.addEventListener("invalid",ErrorMessage);
+quantityInput.addEventListener("invalid",ErrorMessage);
+location1.addEventListener("invalid",ErrorMessage);
+conditionsCheckbox.addEventListener("invalid",ErrorMessage);
+ 
+// Show error message
+function ErrorMessage(event) {
   const target = event.target;
-
   const parent=target.parentElement;
   parent.setAttribute("data-error-visible","true");
+   setTimeout(removeErrorMessage,9000);
   
 }
 
-
+// remove error message
+function removeErrorMessage () {
+  const errorMsg =document.querySelectorAll("[data-error]");
+  errorMsg.forEach((errorMsg) => {
+  errorMsg.removeAttribute('data-error-visible');
+  });
+}
+ 
 function editNav() {
   let navbar = document.getElementById("myTopnav");
   if (navbar == null) throw new Error('navbar not found');
@@ -48,5 +66,18 @@ function launchModal() {
   }
 
 }
+function validate(){
+ ErrorMessage() ;
+}
+
+
+
+  
+
+
+
+
+
+
 
 
