@@ -31,7 +31,17 @@ quantityInput.addEventListener("input", () => CheckInputValue(regexQuantity, qua
 conditionsCheckbox.addEventListener("input", checkIfConditionsAccepted(conditionsCheckbox));
 // form.addEventListener("submit", handleSubmit);
 
+//checkIfConditionsAccepted
+function checkIfConditionsAccepted(element) {
+  if (!element.checked) {
+    ErrorMessage(element);
+    return false; 
+    
+  }
+    removeErrorMessage();
+    return true;
 
+}
 //CheckInputValue
 function CheckInputValue(regex, element) {
   if (!regex.test(element.value)) {
