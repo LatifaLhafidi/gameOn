@@ -145,7 +145,7 @@ function formLocationIsValid(){
   if(formLocationCheck == null){
     addFormErrorMessage(formLocation, "Vous devez choisir une option.");
     formIsValid = false;
-  } else{
+  }else{
     removeFormErrorMessage(formLocation);
   }
 }
