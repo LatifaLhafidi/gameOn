@@ -108,14 +108,14 @@ function formLastIsValid(){
 }
 
 // // Check the validation of the email input
-// function formEmailIsValid(){
-//   if (regexEmail.test(formEmail.value) != true){
-//     addFormErrorMessage(formEmail, "Veuillez entrer une adresse email valide.");
-//     formIsValid = false;
-//   } else{
-//     removeFormErrorMessage(formEmail);
-//   }
-// }
+function formEmailIsValid(){
+  if (regexEmail.test(formEmail.value) != true){
+    addFormErrorMessage(formEmail, "Veuillez entrer une adresse email valide.");
+    formIsValid = false;
+  } else{
+    removeFormErrorMessage(formEmail);
+  }
+}
 
 // // Check the validation of the birthdate input
 // function formBirthdateIsValid(){
