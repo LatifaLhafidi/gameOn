@@ -141,14 +141,14 @@ function formQuantityIsValid(){
 }
 
 // // Check the validation of the location input
-// function formLocationIsValid(){
-//   if(formLocationCheck == null){
-//     addFormErrorMessage(formLocation, "Vous devez choisir une option.");
-//     formIsValid = false;
-//   } else{
-//     removeFormErrorMessage(formLocation);
-//   }
-// }
+function formLocationIsValid(){
+  if(formLocationCheck == null){
+    addFormErrorMessage(formLocation, "Vous devez choisir une option.");
+    formIsValid = false;
+  } else{
+    removeFormErrorMessage(formLocation);
+  }
+}
 
 // // Check the validation of the terms conditions input
 // function formTermsConditionsIsValid(){
