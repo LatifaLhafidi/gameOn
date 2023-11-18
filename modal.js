@@ -118,17 +118,17 @@ function formEmailIsValid(){
 }
 
 // // Check the validation of the birthdate input
-// function formBirthdateIsValid(){
-//   if(formBirthdate.value == ""){
-//     addFormErrorMessage(formBirthdate, "Vous devez entrer votre date de naissance.");
-//     formIsValid = false;
-//   } else if (Date.parse(formBirthdate.value) > Date.now()){
-//     addFormErrorMessage(formBirthdate, "Vous devez entrer une date de naissance valide.");
-//     formIsValid = false;
-//   } else {
-//     removeFormErrorMessage(formBirthdate);
-//   }
-// }
+function formBirthdateIsValid(){
+  if(formBirthdate.value == ""){
+    addFormErrorMessage(formBirthdate, "Vous devez entrer votre date de naissance.");
+    formIsValid = false;
+  } else if (Date.parse(formBirthdate.value) > Date.now()){
+    addFormErrorMessage(formBirthdate, "Vous devez entrer une date de naissance valide.");
+    formIsValid = false;
+  } else {
+    removeFormErrorMessage(formBirthdate);
+  }
+}
 
 // // Check the validation of the quantity input
 // function formQuantityIsValid(){
