@@ -130,15 +130,15 @@ function formBirthdateIsValid(){
   }
 }
 
-// // Check the validation of the quantity input
-// function formQuantityIsValid(){
-//   if(formQuantity.value == "" || regexQuantity.test(formQuantity.value)!= true){
-//     addFormErrorMessage(formQuantity, "Veuillez entrer un nombre entre 0 et 99");
-//     formIsValid = false;
-//   } else{
-//     removeFormErrorMessage(formQuantity);
-//   }
-// }
+// Check the validation of the quantity input
+function formQuantityIsValid(){
+  if(formQuantity.value == "" || regexQuantity.test(formQuantity.value)!= true){
+    addFormErrorMessage(formQuantity, "Veuillez entrer un nombre entre 0 et 99");
+    formIsValid = false;
+  } else{
+    removeFormErrorMessage(formQuantity);
+  }
+}
 
 // // Check the validation of the location input
 // function formLocationIsValid(){
