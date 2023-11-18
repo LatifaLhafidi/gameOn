@@ -98,14 +98,14 @@ function formFirstIsValid(){
 }
 
 // // Check the validation of the lastname input
-// function formLastIsValid(){
-//   if(formLast.value == "" || formLast.value.length < 2 || regexName.test(formLast.value) != true){
-//     addFormErrorMessage(formLast, "Veuillez entrer 2 caractères valide ou plus pour le champ du nom.");
-//     formIsValid = false;
-//   } else{
-//     removeFormErrorMessage(formLast);
-//   }
-// }
+function formLastIsValid(){
+  if(formLast.value == "" || formLast.value.length < 2 || regexName.test(formLast.value) != true){
+    addFormErrorMessage(formLast, "Veuillez entrer 2 caractères valide ou plus pour le champ du nom.");
+    formIsValid = false;
+  } else{
+    removeFormErrorMessage(formLast);
+  }
+}
 
 // // Check the validation of the email input
 // function formEmailIsValid(){
