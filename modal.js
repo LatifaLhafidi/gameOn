@@ -151,14 +151,14 @@ function formLocationIsValid(){
 }
 
 // // Check the validation of the terms conditions input
-// function formTermsConditionsIsValid(){
-//   if(!formTermsConditions.checked){
-//     addFormErrorMessage(formTermsConditions, "Vous devez vérifier que vous acceptez les termes et conditions.");
-//     formIsValid = false;
-//   } else{
-//     removeFormErrorMessage(formTermsConditions);
-//   }
-// }
+function formTermsConditionsIsValid(){
+  if(!formTermsConditions.checked){
+    addFormErrorMessage(formTermsConditions, "Vous devez vérifier que vous acceptez les termes et conditions.");
+    formIsValid = false;
+  } else{
+    removeFormErrorMessage(formTermsConditions);
+  }
+}
 
 // // Check the validation of the form and return a message if it's ok
 // function validate(event){
