@@ -15,7 +15,6 @@ const formEmail = document.getElementById('email'); // Get email input
 const formBirthdate = document.getElementById('birthdate'); // Get birthdate input
 const formQuantity = document.getElementById('quantity'); // Get quantity of number of tournament participated input
 const formLocation = document.querySelector('input[name="location"]'); // Get location input radio
-let formLocationCheck = document.querySelector('input[name="location"]:checked'); // Get location of next tournament input radio check
 const formTermsConditions = document.getElementById('checkbox1'); // Get terms conditions input checkbox
 
 //RegEx
@@ -142,6 +141,7 @@ function formQuantityIsValid(){
 
 // // Check the validation of the location input
 function formLocationIsValid(){
+   let formLocationCheck = document.querySelector('input[name="location"]:checked');
   if(formLocationCheck == null){
     addFormErrorMessage(formLocation, "Vous devez choisir une option.");
     formIsValid = false;
@@ -161,28 +161,26 @@ function formTermsConditionsIsValid(){
 }
 
 // // Check the validation of the form and return a message if it's ok
-// function validate(event){
-//   //Prevent to submit form
-//   event.preventDefault();
+function validate(event){
+  //Prevent to submit form
+  event.preventDefault();
 
-//   // Refresh form location check each time we submit
-//   formLocationCheck = document.querySelector('input[name="location"]:checked');
-//   formIsValid = true;
+  formIsValid = true;
 
-//   formFirstIsValid();
-//   formLastIsValid();
-//   formEmailIsValid();
-//   formBirthdateIsValid();
-//   formQuantityIsValid();
-//   formLocationIsValid();
-//   formTermsConditionsIsValid();
+  formFirstIsValid();
+  formLastIsValid();
+  formEmailIsValid();
+  formBirthdateIsValid();
+  formQuantityIsValid();
+  formLocationIsValid();
+  formTermsConditionsIsValid();
 
-//   if(formIsValid){
-//     modalBackground.classList.add('formSubmitted');
-//     modalBody.style.opacity = "0";
-//     modalSuccess.style.display = "flex";
-//     return true;
-//   } else{
-//     return false;
-//   }
-// }
+  if(formIsValid){
+    modalBackground.classList.add('formSubmitted');
+    modalBody.style.opacity = "0";
+    modalSuccess.style.display = "flex";
+    return true;
+  } else{
+    return false;
+  }
+}
