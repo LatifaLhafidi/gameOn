@@ -37,7 +37,7 @@ function launchModal() {
   modalBackground.style.display = "block";
 
 }
-function fermer(){
+function close(){
   closeModal();
   if(modalBackground.classList.contains('formSubmitted')){
     restartModal();
@@ -63,15 +63,8 @@ function restartModal(){
 }
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-modalClose.addEventListener("click",fermer);
+modalClose.addEventListener("click",close);
 modalCloseSucess.addEventListener("click",CloseSucess);
-//addEventListenner
-formFirst.addEventListener("input",formFirstIsValid);
-formLast.addEventListener("input", formLastIsValid);
-formEmail.addEventListener("input",formEmailIsValid);
-formBirthdate.addEventListener("input",formBirthdateIsValid);
-formQuantity.addEventListener("input",formQuantityIsValid);
-formTermsConditions.addEventListener("change",formTermsConditionsIsValid);
 
 
 // Add error message
@@ -87,22 +80,12 @@ function removeFormErrorMessage(element){
 }
 
 // Check the validation of the firstname input
-function formFirstIsValid(){
-  if(formFirst.value == "" || formFirst.value.length < 2 || regexName.test(formFirst.value) != true){
-    addFormErrorMessage(formFirst, "Veuillez entrer 2 caractères valide ou plus pour le champ du prénom.");
+function formFirstIsValid(element){
+  if(element.value == "" || element.value.length < 2 || regexName.test(element.value) != true){
+    addFormErrorMessage(element, "Veuillez entrer 2 caractères valide ou plus pour le champ du prénom.");
     formIsValid = false;
   } else{
-    removeFormErrorMessage(formFirst);
-  }
-}
-
-// // Check the validation of the lastname input
-function formLastIsValid(){
-  if(formLast.value == "" || formLast.value.length < 2 || regexName.test(formLast.value) != true){
-    addFormErrorMessage(formLast, "Veuillez entrer 2 caractères valide ou plus pour le champ du nom.");
-    formIsValid = false;
-  } else{
-    removeFormErrorMessage(formLast);
+    removeFormErrorMessage(element);
   }
 }
 
@@ -166,9 +149,8 @@ function validate(event){
   event.preventDefault();
 
   formIsValid = true;
-
-  formFirstIsValid();
-  formLastIsValid();
+  formFirstIsValid(formFirst);
+  formFirstIsValid(formLast);
   formEmailIsValid();
   formBirthdateIsValid();
   formQuantityIsValid();
