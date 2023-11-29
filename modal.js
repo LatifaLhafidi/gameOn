@@ -1,4 +1,3 @@
-
 // DOM Elements
 const modalBackground = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -6,17 +5,19 @@ const modalClose = document.querySelector(".close");
 const formData = document.querySelectorAll(".formData");
 
 const modalBody = document.querySelector(".modal-body");
-const modalSuccess = document.querySelector(".modal-success")
-const modalCloseSucess = document.querySelector('.modal-success-close');
+const modalSuccess = document.querySelector(".modal-success");
+const modalCloseSucess = document.querySelector(".modal-success-close");
 
-const formFirst = document.getElementById('first'); // Get firstname input
-const formLast = document.getElementById('last'); // Get lastname input
-const formEmail = document.getElementById('email'); // Get email input
-const formBirthdate = document.getElementById('birthdate'); // Get birthdate input
-const formQuantity = document.getElementById('quantity'); // Get quantity of number of tournament participated input
+const formFirst = document.getElementById("first"); // Get firstname input
+const formLast = document.getElementById("last"); // Get lastname input
+const formEmail = document.getElementById("email"); // Get email input
+const formBirthdate = document.getElementById("birthdate"); // Get birthdate input
+const formQuantity = document.getElementById("quantity"); // Get quantity of number of tournament participated input
 const formLocation = document.querySelector('input[name="location"]'); // Get location input radio
-const formLocationCheck = document.querySelector('input[name="location"]:checked');
-const formTermsConditions = document.getElementById('checkbox1'); // Get terms conditions input checkbox
+const formLocationCheck = document.querySelector(
+  'input[name="location"]:checked'
+);
+const formTermsConditions = document.getElementById("checkbox1"); // Get terms conditions input checkbox
 
 //RegEx
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -26,8 +27,8 @@ let formIsValid; // initialize form validation;
 
 function editNav() {
   let navbar = document.getElementById("myTopnav");
-  if (navbar == null) throw new Error('navbar not found');
-  navbar.classList.toggle("responsive")
+  if (navbar == null) throw new Error("navbar not found");
+  navbar.classList.toggle("responsive");
 }
 // close modal form
 function closeModal() {
@@ -36,77 +37,87 @@ function closeModal() {
 // launch modal form
 function launchModal() {
   modalBackground.style.display = "block";
-
 }
-function close(){
+function close() {
   closeModal();
-  if(modalBackground.classList.contains('formSubmitted')){
+  if (modalBackground.classList.contains("formSubmitted")) {
     restartModal();
   }
 }
 
-
- function CloseSucess(){
+function closeSucess() {
   closeModal();
   restartModal();
 }
 // restart modal form
-function restartModal(){
-  modalBackground.classList.remove('formSubmitted');
+function restartModal() {
+  modalBackground.classList.remove("formSubmitted");
   modalBody.style.opacity = "1";
   modalSuccess.style.display = "none";
-  formFirst.value="";
-  formLast.value="";
-  formEmail.value="";
-  formBirthdate.value="";
-  formQuantity.value="";
+  formFirst.value = "";
+  formLast.value = "";
+  formEmail.value = "";
+  formBirthdate.value = "";
+  formQuantity.value = "";
   formLocationCheck.checked = false;
 }
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-modalClose.addEventListener("click",close);
-modalCloseSucess.addEventListener("click",CloseSucess);
-
+modalClose.addEventListener("click", close);
+modalCloseSucess.addEventListener("click", CloseSucess);
 
 // Add error message
-function addFormErrorMessage(element, errorMessage){
-  element.parentElement.setAttribute('data-error', errorMessage);
-  element.parentElement.setAttribute('data-error-visible', 'true');
+function addFormErrorMessage(element, errorMessage) {
+  element.parentElement.setAttribute("data-error", errorMessage);
+  element.parentElement.setAttribute("data-error-visible", "true");
 }
 
 // Remove error message
-function removeFormErrorMessage(element){
-    element.parentElement.removeAttribute('data-error');
-    element.parentElement.removeAttribute('data-error-visible');
+function removeFormErrorMessage(element) {
+  element.parentElement.removeAttribute("data-error");
+  element.parentElement.removeAttribute("data-error-visible");
 }
 
 // Check the validation of the firstname input
-function formFirsLasttIsValid(element){
-  if(element.value == "" || element.value.length < 2 || regexName.test(element.value) != true){
-    addFormErrorMessage(element, "Veuillez entrer 2 caractères valide ou plus pour le champ du prénom.");
+function formFirsLasttIsValid(element) {
+  if (
+    element.value == "" ||
+    element.value.length < 2 ||
+    regexName.test(element.value) != true
+  ) {
+    addFormErrorMessage(
+      element,
+      "Veuillez entrer 2 caractères valide ou plus pour le champ du prénom."
+    );
     formIsValid = false;
-  } else{
+  } else {
     removeFormErrorMessage(element);
   }
 }
 
 // // Check the validation of the email input
-function formEmailIsValid(){
-  if (regexEmail.test(formEmail.value) != true){
+function formEmailIsValid() {
+  if (regexEmail.test(formEmail.value) != true) {
     addFormErrorMessage(formEmail, "Veuillez entrer une adresse email valide.");
     formIsValid = false;
-  } else{
+  } else {
     removeFormErrorMessage(formEmail);
   }
 }
 
 // // Check the validation of the birthdate input
-function formBirthdateIsValid(){
-  if(formBirthdate.value == ""){
-    addFormErrorMessage(formBirthdate, "Vous devez entrer votre date de naissance.");
+function formBirthdateIsValid() {
+  if (formBirthdate.value == "") {
+    addFormErrorMessage(
+      formBirthdate,
+      "Vous devez entrer votre date de naissance."
+    );
     formIsValid = false;
-  } else if (Date.parse(formBirthdate.value) > Date.now()){
-    addFormErrorMessage(formBirthdate, "Vous devez entrer une date de naissance valide.");
+  } else if (Date.parse(formBirthdate.value) > Date.now()) {
+    addFormErrorMessage(
+      formBirthdate,
+      "Vous devez entrer une date de naissance valide."
+    );
     formIsValid = false;
   } else {
     removeFormErrorMessage(formBirthdate);
@@ -114,38 +125,49 @@ function formBirthdateIsValid(){
 }
 
 // Check the validation of the quantity input
-function formQuantityIsValid(){
-  if(formQuantity.value == "" || regexQuantity.test(formQuantity.value)!= true){
-    addFormErrorMessage(formQuantity, "Veuillez entrer un nombre entre 0 et 99");
+function formQuantityIsValid() {
+  if (
+    formQuantity.value == "" ||
+    regexQuantity.test(formQuantity.value) != true
+  ) {
+    addFormErrorMessage(
+      formQuantity,
+      "Veuillez entrer un nombre entre 0 et 99"
+    );
     formIsValid = false;
-  } else{
+  } else {
     removeFormErrorMessage(formQuantity);
   }
 }
 
 // // Check the validation of the location input
-function formLocationIsValid(){
-  let formLocationCheck = document.querySelector('input[name="location"]:checked');
-  if(formLocationCheck == null){
+function formLocationIsValid() {
+  let formLocationCheck = document.querySelector(
+    'input[name="location"]:checked'
+  );
+  if (formLocationCheck == null) {
     addFormErrorMessage(formLocation, "Vous devez choisir une option.");
     formIsValid = false;
-  }else{
+  } else {
     removeFormErrorMessage(formLocation);
   }
 }
 
 // // Check the validation of the terms conditions input
-function formTermsConditionsIsValid(){
-  if(!formTermsConditions.checked){
-    addFormErrorMessage(formTermsConditions, "Vous devez vérifier que vous acceptez les termes et conditions.");
+function formTermsConditionsIsValid() {
+  if (!formTermsConditions.checked) {
+    addFormErrorMessage(
+      formTermsConditions,
+      "Vous devez vérifier que vous acceptez les termes et conditions."
+    );
     formIsValid = false;
-  } else{
+  } else {
     removeFormErrorMessage(formTermsConditions);
   }
 }
 
 // // Check the validation of the form and return a message if it's ok
-function validate(event){
+function validate(event) {
   //Prevent to submit form
   event.preventDefault();
 
@@ -158,12 +180,12 @@ function validate(event){
   formLocationIsValid();
   formTermsConditionsIsValid();
 
-  if(formIsValid){
-    modalBackground.classList.add('formSubmitted');
+  if (formIsValid) {
+    modalBackground.classList.add("formSubmitted");
     modalBody.style.opacity = "0";
     modalSuccess.style.display = "flex";
     return true;
-  } else{
+  } else {
     return false;
   }
 }
