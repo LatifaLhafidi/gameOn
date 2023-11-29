@@ -15,6 +15,7 @@ const formEmail = document.getElementById('email'); // Get email input
 const formBirthdate = document.getElementById('birthdate'); // Get birthdate input
 const formQuantity = document.getElementById('quantity'); // Get quantity of number of tournament participated input
 const formLocation = document.querySelector('input[name="location"]'); // Get location input radio
+const formLocationCheck = document.querySelector('input[name="location"]:checked');
 const formTermsConditions = document.getElementById('checkbox1'); // Get terms conditions input checkbox
 
 //RegEx
@@ -80,7 +81,7 @@ function removeFormErrorMessage(element){
 }
 
 // Check the validation of the firstname input
-function formFirstIsValid(element){
+function formFirsLasttIsValid(element){
   if(element.value == "" || element.value.length < 2 || regexName.test(element.value) != true){
     addFormErrorMessage(element, "Veuillez entrer 2 caractères valide ou plus pour le champ du prénom.");
     formIsValid = false;
@@ -124,7 +125,7 @@ function formQuantityIsValid(){
 
 // // Check the validation of the location input
 function formLocationIsValid(){
-   let formLocationCheck = document.querySelector('input[name="location"]:checked');
+  let formLocationCheck = document.querySelector('input[name="location"]:checked');
   if(formLocationCheck == null){
     addFormErrorMessage(formLocation, "Vous devez choisir une option.");
     formIsValid = false;
@@ -149,8 +150,8 @@ function validate(event){
   event.preventDefault();
 
   formIsValid = true;
-  formFirstIsValid(formFirst);
-  formFirstIsValid(formLast);
+  formFirsLasttIsValid(formFirst);
+  formFirsLasttIsValid(formLast);
   formEmailIsValid();
   formBirthdateIsValid();
   formQuantityIsValid();
