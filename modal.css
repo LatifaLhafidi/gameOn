@@ -27,6 +27,7 @@ p {
 
 img {
   padding-right: 1rem;
+
 }
 
 .topnav {
@@ -35,6 +36,10 @@ img {
 }
 .header-logo {
     float: left;
+}
+.header-logo img {
+  width: 277px;
+  height: 49px;
 }
 .main-navbar {
     float: right;
@@ -80,6 +85,12 @@ a.active > span::after{
 }
 
 @media screen and (max-width: 768px) {
+  .header-logo img {
+    width:103px;
+    height: 19px;
+    top: 33px;
+    left:30px;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -89,6 +100,7 @@ a.active > span::after{
   .topnav a.icon:hover{
     color: #ffffff;
   }
+ 
 }
 
 @media screen and (max-width: 768px) {
@@ -104,6 +116,7 @@ a.active > span::after{
     display: block;
     text-align: left;
   }
+  
 }
 
 @media screen and (max-width: 540px) {
@@ -469,7 +482,7 @@ input {
   width: 100%;
   font-weight: normal;
   margin-top: 57px;
-  font-size: 1.3rem;
+  font-size: 24px;
   padding: 0;
 }
 .btn-signup {
@@ -523,12 +536,14 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 3rem;
+    font-size: 40px;
     white-space: normal;
+    line-height:52px;
+    font-weight: bold;
   }
   .hero-text {
     width: unset;
-    font-size: 1rem;
+    font-size: 13px;
     margin-top: 20px;
   }
   .hero-img img {
