@@ -91,6 +91,7 @@ a.active > span::after{
     top: 33px; 
     left:30px;
   }
+  
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
