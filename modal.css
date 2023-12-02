@@ -88,7 +88,7 @@ a.active > span::after{
   .header-logo img {
     width:103px;
     height: 19px;
-    top: 33px;
+    top: 33px; 
     left:30px;
   }
   .topnav a {display: none;}
